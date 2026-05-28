@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Multi Speciality Hospital Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>Skyline Multi Speciality Hospital</h1>
+
+    </header>
+
+    <!-- DASHBOARD CARDS -->
+
+    <section class="cards">
+
+        <div class="card">
+            <h2>Total Patients</h2>
+            <p id="totalPatients">0</p>
+        </div>
+
+        <div class="card">
+            <h2>Today's Appointments</h2>
+            <p id="totalAppointments">0</p>
+        </div>
+
+        <div class="card">
+            <h2>Emergency Cases</h2>
+            <p>12</p>
+        </div>
+
+        <div class="card">
+            <h2>Doctors Available</h2>
+            <p>25</p>
+        </div>
+
+    </section>
+
+    <!-- DASHBOARD BUTTONS -->
+
+    <section class="buttons">
+
+        <button onclick="showRegistration()">
+            Registration
+        </button>
+
+        <button onclick="showAppointments()">
+            Appointments
+        </button>
+
+        <button onclick="showDoctors()">
+            Doctors Details
+        </button>
+
+        <button onclick="showBilling()">
+            Billing
+        </button>
+
+        <button onclick="showReport()">
+            Report
+        </button>
+
+    </section>
+
+    <!-- REGISTRATION SECTION -->
+
+    <section class="form-section" id="registrationSection">
+
+        <h2>Patient Registration Form</h2>
+
+        <form id="registrationForm">
+
+            <label>Patient ID</label>
+
+            <input type="text" id="patientId" readonly>
+
+            <label>Patient Name</label>
+
+            <input type="text" id="patientName" required>
+
+            <label>Age</label>
+
+            <input type="number" id="age" required>
+
+            <label>Gender</label>
+
+            <div class="gender">
+
+                <label>
+                    <input type="radio" name="gender" value="Male">
+                    Male
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="Female">
+                    Female
+                </label>
+
+                <label>
+                    <input type="radio" name="gender" value="Other">
+                    Other
+                </label>
+
+            </div>
+
+            <label>Blood Group</label>
+
+            <select id="bloodGroup">
+
+                <option>Select Blood Group</option>
+
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+
+            </select>
+
+            <label>Mobile Number</label>
+
+            <input type="tel" id="mobile">
+
+            <label>Emergency Contact</label>
+
+            <input type="tel" id="emergency">
+
+            <label>Address</label>
+
+            <textarea id="address"></textarea>
+
+            <label>Symptoms</label>
+
+            <textarea id="symptoms"></textarea>
+
+            <label>Doctors Available</label>
+
+            <select id="doctor">
+
+                <option>Select Doctor</option>
+
+                <option>Dr. Smith - Cardiologist</option>
+
+                <option>Dr. John - Neurologist</option>
+
+                <option>Dr. Emily - Pediatrician</option>
+
+                <option>Dr. David - Orthopedic</option>
+
+                <option>Dr. Michael - Urologist</option>
+
+                <option>Dr. Sarah - Dermatologist</option>
+
+                <option>Dr. Robert - ENT Specialist</option>
+
+                <option>Dr. Kevin - Psychiatrist</option>
+
+                <option>Dr. Lisa - Gynecologist</option>
+
+                <option>Dr. Alex - General Surgeon</option>
+
+                <option>Dr. Thomas - Dentist</option>
+
+                <option>Dr. William - Ophthalmologist</option>
+
+                <option>Dr. Daniel - Gastroenterologist</option>
+
+                <option>Dr. Jennifer - Oncologist</option>
+
+                <option>Dr. Richard - Pulmonologist</option>
+
+                <option>Dr. Sophia - Endocrinologist</option>
+
+                <option>Dr. Ethan - Nephrologist</option>
+
+                <option>Dr. Olivia - Radiologist</option>
+
+                <option>Dr. James - Anesthesiologist</option>
+
+                <option>Dr. Grace - Emergency Medicine</option>
+
+                <option>Dr. Andrew - Neurosurgeon</option>
+
+                <option>Dr. Charlotte - Plastic Surgeon</option>
+
+                <option>Dr. Benjamin - Rheumatologist</option>
+
+                <option>Dr. Victoria - Hematologist</option>
+
+                <option>Dr. Christopher - Hepatologist</option>
+
+            </select>
+
+            <label>Appointment Details</label>
+
+            <input type="datetime-local" id="appointment">
+
+            <label>Upload Medical Certificate</label>
+
+            <input type="file">
+
+            <button type="submit" class="submit-btn">
+                Submit Registration
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- APPOINTMENTS SECTION -->
+
+    <section class="table-section" id="appointmentSection">
+
+        <h2>Appointments</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Patient ID</th>
+                    <th>Patient Name</th>
+                    <th>Symptoms</th>
+                    <th>Doctor</th>
+                    <th>Appointment</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="appointmentTableBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- DOCTOR DETAILS -->
+
+    <section class="info-section" id="doctorSection">
+
+        <h2>Doctors Details</h2>
+
+        <ul>
+
+            <li>Dr. Smith - Cardiologist</li>
+            <li>Dr. John - Neurologist</li>
+            <li>Dr. Emily - Pediatrician</li>
+            <li>Dr. David - Orthopedic</li>
+            <li>Dr. Michael - Urologist</li>
+            <li>Dr. Sarah - Dermatologist</li>
+            <li>Dr. Robert - ENT Specialist</li>
+            <li>Dr. Kevin - Psychiatrist</li>
+            <li>Dr. Lisa - Gynecologist</li>
+            <li>Dr. Alex - General Surgeon</li>
+            <li>Dr. Thomas - Dentist</li>
+            <li>Dr. William - Ophthalmologist</li>
+            <li>Dr. Daniel - Gastroenterologist</li>
+            <li>Dr. Jennifer - Oncologist</li>
+            <li>Dr. Richard - Pulmonologist</li>
+            <li>Dr. Sophia - Endocrinologist</li>
+            <li>Dr. Ethan - Nephrologist</li>
+            <li>Dr. Olivia - Radiologist</li>
+            <li>Dr. James - Anesthesiologist</li>
+            <li>Dr. Grace - Emergency Medicine</li>
+
+        </ul>
+
+    </section>
+
+    <!-- BILLING SECTION -->
+
+    <section class="info-section" id="billingSection">
+
+        <h2>Billing Details</h2>
+
+        <p>Total Revenue Today: ₹45,000</p>
+
+        <p>Pending Payments: ₹12,000</p>
+
+    </section>
+
+    <!-- REPORT SECTION -->
+
+    <section class="info-section" id="reportSection">
+
+        <h2>Hospital Reports</h2>
+
+        <div id="reportContent">
+
+            <p>No reports generated yet.</p>
+
+        </div>
+
+    </section>
+
+    <script src="scripy.js"></script>
+
+</body>
+
+</html>
